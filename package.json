@@ -1,0 +1,40 @@
+{
+  "name": "vue-toc",
+  "version": "0.0.1",
+  "description": "A table of contents component for vue.js",
+  "main": "dist/vue-toc.js",
+  "scripts": {
+    "bundle": "rollup -c",
+    "build": "yarn bundle"
+  },
+  "repository": "https://github.com/isy/vue-toc",
+  "keywords": [
+    "Vue.js",
+    "vue",
+    "toc",
+    "Table of Contents"
+  ],
+  "author": "isy",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-external-helpers": "^7.2.0",
+    "@babel/preset-env": "^7.4.5",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.2.2",
+    "rollup": "^1.15.5",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^10.0.0",
+    "rollup-plugin-copy": "^3.0.0",
+    "rollup-plugin-eslint": "^6.0.0",
+    "rollup-plugin-istanbul": "^2.0.1",
+    "rollup-plugin-node-resolve": "^5.0.2",
+    "rollup-plugin-vue": "^5.0.0",
+    "vue-template-compiler": "^2.6.10"
+  }
+}
