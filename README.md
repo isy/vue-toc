@@ -1,4 +1,4 @@
-# vue-toc
+# vue-toc [![Build Status](https://travis-ci.org/isy/vue-toc.svg?branch=master)](https://travis-ci.org/isy/vue-toc)
 > Vue.js component that automatically generates a table of contents.
 
 ## Install
