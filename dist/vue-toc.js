@@ -14,6 +14,14 @@
       target: {
         type: String,
         "default": ''
+      },
+      h2Class: {
+        type: String,
+        "default": 'toc-2'
+      },
+      h3Class: {
+        type: String,
+        "default": 'toc-3'
       }
     },
     mounted: function mounted() {
@@ -21,8 +29,8 @@
 
       this.$nextTick(function () {
         var toc = _this.$refs.toc;
-        var matches = document.querySelectorAll("".concat(target, " h2, ").concat(target, " h3"));
-        matches.forEach(function (value, idx) {
+        var matches = document.querySelectorAll("".concat(_this.target, " h2, ").concat(_this.target, " h3"));
+        matches.forEach(function (value) {
           if (value.tagName === 'H2') {
             var ul = document.createElement('ul');
             var li = document.createElement('li');
@@ -30,7 +38,7 @@
             a.innerHTML = value.textContent;
             a.href = "#".concat(value.id);
             li.appendChild(a);
-            li.classList.add('heading2');
+            li.classList.add(_this.h2Class);
             ul.appendChild(li);
             toc.appendChild(ul);
           }
@@ -48,6 +56,8 @@
             _a.href = "#".concat(value.id);
 
             _li.appendChild(_a);
+
+            _li.classList.add(_this.h3Class);
 
             _ul.appendChild(_li);
 
@@ -143,56 +153,6 @@
 
   var normalizeComponent_1 = normalizeComponent;
 
-  var isOldIE = typeof navigator !== 'undefined' && /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
-  function createInjector(context) {
-    return function (id, style) {
-      return addStyle(id, style);
-    };
-  }
-  var HEAD = document.head || document.getElementsByTagName('head')[0];
-  var styles = {};
-
-  function addStyle(id, css) {
-    var group = isOldIE ? css.media || 'default' : id;
-    var style = styles[group] || (styles[group] = {
-      ids: new Set(),
-      styles: []
-    });
-
-    if (!style.ids.has(id)) {
-      style.ids.add(id);
-      var code = css.source;
-
-      if (css.map) {
-        // https://developer.chrome.com/devtools/docs/javascript-debugging
-        // this makes source maps inside style tags work properly in Chrome
-        code += '\n/*# sourceURL=' + css.map.sources[0] + ' */'; // http://stackoverflow.com/a/26603875
-
-        code += '\n/*# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(JSON.stringify(css.map)))) + ' */';
-      }
-
-      if (!style.element) {
-        style.element = document.createElement('style');
-        style.element.type = 'text/css';
-        if (css.media) style.element.setAttribute('media', css.media);
-        HEAD.appendChild(style.element);
-      }
-
-      if ('styleSheet' in style.element) {
-        style.styles.push(code);
-        style.element.styleSheet.cssText = style.styles.filter(Boolean).join('\n');
-      } else {
-        var index = style.ids.size - 1;
-        var textNode = document.createTextNode(code);
-        var nodes = style.element.childNodes;
-        if (nodes[index]) style.element.removeChild(nodes[index]);
-        if (nodes.length) style.element.insertBefore(textNode, nodes[index]);else style.element.appendChild(textNode);
-      }
-    }
-  }
-
-  var browser = createInjector;
-
   /* script */
   const __vue_script__ = script;
 
@@ -207,17 +167,15 @@
   __vue_render__._withStripped = true;
 
     /* style */
-    const __vue_inject_styles__ = function (inject) {
-      if (!inject) return
-      inject("data-v-528a4a99_0", { source: "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", map: {"version":3,"sources":[],"names":[],"mappings":"","file":"Toc.vue"}, media: undefined });
-
-    };
+    const __vue_inject_styles__ = undefined;
     /* scoped */
     const __vue_scope_id__ = undefined;
     /* module identifier */
     const __vue_module_identifier__ = undefined;
     /* functional template */
     const __vue_is_functional_template__ = false;
+    /* style inject */
+    
     /* style inject SSR */
     
 
@@ -229,7 +187,7 @@
       __vue_scope_id__,
       __vue_is_functional_template__,
       __vue_module_identifier__,
-      browser,
+      undefined,
       undefined
     );
 
