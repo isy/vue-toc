@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "A table of contents component for vue.js",
   "main": "dist/vue-toc.js",
+  "files": [
+    "dist/"
+  ],
   "scripts": {
     "bundle": "rollup -c",
     "build": "yarn bundle"
